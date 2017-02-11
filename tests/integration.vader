@@ -507,7 +507,7 @@ Execute (Highlights should be cleared after successful run):
   let highlights = neomake#highlights#_get()
   if has('nvim')
     let highlight = highlights['file'][bufnr('%')]
-    AssertEqual highlights, {'file': {bufnr('%'): highlight}, 'project': {}}
+    AssertEqual highlight, 2
   else
     AssertEqual highlights, {
     \ 'file': {bufnr('%'): {'NeomakeError': [[1, 1, 5]], 'NeomakeInfo': [],
@@ -520,7 +520,8 @@ Execute (Highlights should be cleared after successful run):
 
   let highlights = neomake#highlights#_get()
   if has('nvim')
-    AssertEqual highlights, {'file': {bufnr('%'): highlight}, 'project': {}}
+    let highlight = highlights['file'][bufnr('%')]
+    AssertEqual highlight, 2
   else
     AssertEqual highlights, {
     \ 'file': {bufnr('%'): {'NeomakeError': [], 'NeomakeInfo': [],
