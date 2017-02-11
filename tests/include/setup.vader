@@ -57,9 +57,9 @@ Before:
     while 1
       let max -= 1
       if max == 0
-        throw 'No job finished after 60ms.'
+        throw 'No job finished after 600ms.'
       endif
-      sleep 1m
+      sleep 10m
       if len(neomake#GetJobs()) != n
       Log max
         break
